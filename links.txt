@@ -1,0 +1,4 @@
+https://www.kaggle.com/code/dogukantabak/fire-detection-yolov8/output
+
+Data : https://www.kaggle.com/datasets/metinmekiabullrahman/fire-detection
+
