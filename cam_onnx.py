@@ -12,6 +12,7 @@ INPUT_HEIGHT = 640
 conf_threshold = 0.4
 nms_threshold = 0.5
 
+
 # Prétraitement
 def preprocess(frame):
     img_resized = cv2.resize(frame, (INPUT_WIDTH, INPUT_HEIGHT))
@@ -19,6 +20,7 @@ def preprocess(frame):
     img_input /= 255.0
     img_input = np.expand_dims(img_input, axis=0)
     return img_input
+
 
 # Post-traitement
 def postprocess(outputs, frame):
@@ -57,9 +59,9 @@ def postprocess(outputs, frame):
         x, y, w, h = boxes[i]
         conf = scores[i]
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
-        cv2.putText(frame, f"Fire {conf:.2f}", (x, y - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+        cv2.putText(frame, f"Fire {conf:.2f}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
     return frame
+
 
 # Capture webcam
 cap = cv2.VideoCapture(0)
@@ -77,7 +79,7 @@ while True:
 
     cv2.imshow("Fire Detection (YOLOv5 ONNX INT8)", frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 cap.release()

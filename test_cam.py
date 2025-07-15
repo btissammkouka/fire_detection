@@ -1,8 +1,8 @@
-import torch
 import cv2
+import torch
 
 # Charger le modèle YOLOv5 entraîné
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt')
+model = torch.hub.load("ultralytics/yolov5", "custom", path="best.pt")
 model.conf = 0.4  # seuil de confiance minimal (ajuste selon le besoin)
 
 # Accès à la webcam (0 pour la webcam intégrée)
@@ -23,9 +23,9 @@ while True:
     cv2.imshow("Fire Detection - YOLOv5", annotated_frame)
 
     # Quitter avec la touche Q
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
-# Libérer les ressources
+# Libérer les resources
 cap.release()
 cv2.destroyAllWindows()
